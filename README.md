@@ -50,14 +50,7 @@ A simple Todo application built with Laravel and Laravel Sanctum for API authent
     php artisan migrate
     ```
 
-7. **(Optional) Install frontend dependencies:**
-
-    ```bash
-    npm install
-    npm run dev
-    ```
-
-8. **Start the development server:**
+7. **Start the development server:**
     ```bash
     php artisan serve
     ```
