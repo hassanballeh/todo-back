@@ -41,13 +41,12 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $request->email)->firstOrFail();
-        $token = $user->createToken('auth_token',['*'], now()->addDay())->plainTextToken;
+        $token = $user->createToken('auth_token',['*'], now()->addMinutes(10))->plainTextToken;
 
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'expires_in' => 86400,
-            'expires_at' => now()->addDay()->toDateTimeString(),
+            'expires_at' => now()->addMinutes(10),
             'user' => $user,
         ]);
     }

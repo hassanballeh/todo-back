@@ -50,7 +50,6 @@ class TodoController extends Controller
     public function destroy(Request $request,  $id)
     {
         $todo = Todo::findOrFail($id);
-        // Check if the todo belongs to the authenticated user
         if ($todo->user_id !== $request->user()->id) {
             return response()->json([
                 'message' => 'Unauthorized'
